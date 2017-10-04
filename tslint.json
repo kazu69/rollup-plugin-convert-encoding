@@ -1,0 +1,21 @@
+{
+    "extends" : [
+      "tslint:recommended"
+    ],
+    "rules": {
+      "forin": false,
+      "no-console": [false],
+      "indent": [true, "space"],
+      "one-line": [false],
+      "max-line-length": [false],
+      "object-literal-sort-keys": false,
+      "curly": false,
+      "ordered-imports": [ false ],
+      "only-arrow-functions": [ false ],
+      "class-name": true,
+      "semicolon": true,
+      "quotemark": [true, "single"],
+      "interface-name": [true, "never-prefix"]
+    }
+  }
+  
