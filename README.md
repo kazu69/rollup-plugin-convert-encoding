@@ -12,10 +12,10 @@ npm install rollup-plugin-convert-encode
 
 ### Setup
 
-example for `rollup.config.js
+example for `rollup.config.js`
 
 ```js
-import encode from 'rollup-plugin-encode';
+import encode from 'rollup-plugin-convert-encoding';
 const dist = 'dist/converted.js';
 
 const options = {
@@ -35,7 +35,7 @@ export default {
 };
 ```
 
-### Options
+## Options
 
 #### dist
 
@@ -65,7 +65,11 @@ Default: {decode: {}, encode: {}}
 
 [iconv-lite](https://github.com/ashtuchkin/iconv-lite#bom-handling) BOM Handling option.
 
-### About encodings
+## About encodings
 
 The plugin uses [iconv-lite](https://github.com/ashtuchkin/iconv-lite/) to handle the encoding.
 Support encodings listed on the [iconv-lite page](https://github.com/ashtuchkin/iconv-lite/wiki/Supported-Encodings).
+
+## License
+
+[MIT License](https://github.com/kazu69/rollup-plugin-convert-encoding/blob/master/LICENSE)

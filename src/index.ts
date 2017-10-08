@@ -41,7 +41,7 @@ export default function encoding(options: IEncodingOptions)
     const filter = createFilter(options.include, options.exclude);
 
     return {
-        name: 'encoding',
+        name: 'convert-encoding',
         transform(code: string, id: string) {
             if (!filter(id)) {
                 return;
