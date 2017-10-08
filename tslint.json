@@ -14,8 +14,7 @@
       "only-arrow-functions": [ false ],
       "class-name": true,
       "semicolon": true,
-      "quotemark": [true, "single"],
-      "interface-name": [true, "never-prefix"]
+      "quotemark": [true, "single"]
     }
   }
   

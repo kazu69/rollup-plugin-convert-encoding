@@ -1,7 +1,7 @@
 {
   "name": "rollup-plugin-convert-encoding",
   "version": "0.0.1",
-  "description": "",
+  "description": "Rollup plugin to file encode.",
   "main": "dist/rollup-plugin-convert-encoding.cjs.js",
   "module": "dist/rollup-plugin-convert-encoding.es.js",
   "jsnext:main": "dist/rollup-plugin-convert-encoding.es.js",
@@ -23,16 +23,20 @@
     "build": "rollup -c",
     "prebuild": "rm -rf dist/*",
     "prepublish": "npm test",
-    "example": "npm run build && rollup -c example/rollup.config.js"
+    "test": "npm run build && ava test/"
   },
   "dependencies": {
-    "rollup-pluginutils": "^2.0.1"
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-latest": "^6.24.1",
+    "rollup-pluginutils": "^2.0.1",
+    "transform-runtime": "0.0.0"
   },
   "devDependencies": {
     "@types/chalk": "^0.4.31",
     "@types/node": "^8.0.32",
     "ava": "^0.22.0",
     "chalk": "^2.1.0",
+    "export-context": "0.0.8",
     "iconv-lite": "^0.4.19",
     "rollup": "^0.50.0",
     "rollup-plugin-typescript2": "^0.7.0",

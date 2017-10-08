@@ -2,26 +2,8 @@ import * as iconv from 'iconv-lite';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as chalk from 'chalk';
-
-export interface RollupPluginOptions {
-    include: string;
-	exclude: string;
-}
-
-export interface EncodingOptions extends RollupPluginOptions {
-    encodingFrom?: string;
-    encodingTo?: string;
-    iconv?: {
-        decode?: {};
-        encode?: {};
-    };
-    dist: string;
-}
-
-interface IconvOption {
-    stripBOM?: boolean;
-    addBOM?: boolean;
-}
+import {IEncodingOptions} from './iencoding_options';
+import {IIconvOption} from './iiconv_options';
 
 const defaultEncoding = 'UTF-8';
 
@@ -43,17 +25,17 @@ function logError(message: string): void
     console.error(chalk.red.bold(message));
 }
 
-function decode(data: any, from: string, option?: IconvOption): string
+function bufferDecode(data: Buffer, from: string, option?: IIconvOption): string
 {
     return iconv.decode(data, from, option);
 }
 
-function encode(code: string, to: string, option?: IconvOption): NodeBuffer
+function codeEncoding(code: string, to: string, option?: IIconvOption): NodeBuffer
 {
     return iconv.encode(code, to, option);
 }
 
-export default function encoding(options: EncodingOptions)
+export default function encoding(options: IEncodingOptions)
 {
     const createFilter = require('rollup-pluginutils').createFilter;
     const filter = createFilter(options.include, options.exclude);
@@ -95,7 +77,7 @@ export default function encoding(options: EncodingOptions)
                         logError(`Can not read file ${id}`);
                     }
 
-                    const buffer = encode(decode(data, from, decodeOption), to, encodeOption);
+                    const buffer = codeEncoding(bufferDecode(data, from, decodeOption), to, encodeOption);
 
                     if (!ensureDirectoryExistence(options.dist)) {
                         throw new Error('Direcory create faild');

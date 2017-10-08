@@ -1,0 +1,16 @@
+.npmignore
+.travis.yml
+.gitignore
+test
+test/
+node_modules/
+coverage/
+tmp/
+temp/
+fixture/
+spec/
+vendor/
+dist/
+example/
+media/
+src/
